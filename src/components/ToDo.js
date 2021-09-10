@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react"
+mport React, { useState, useEffect } from "react"
 
 function ToDo() {
 
@@ -10,11 +10,15 @@ function ToDo() {
         setList([...list, e.target.firstChild.value]) 
         e.target.firstChild.value = "" 
     }
-
+    //no entiendo que rayos hace useEffect-
     useEffect(() => {
         console.log(list)
     }, [list])
 
+
+    const deleteTask=(e) => {
+        //Componente de boorrar
+    }
     return (
         <>
         ¿Cual es la tarea?
@@ -25,7 +29,11 @@ function ToDo() {
         <ul>
         { 
         list.map(value => (
-            <li>{value}</li>
+            <>
+                <li>{value}</li>
+                {/Quiero que cada elemento tenga un id para asi poder seleccionarlo y borrar especificamente ese/}
+                <button type="submit" onClick={()=>{deleteTask(lista.id)}}>ELiminar</button>
+            </>
         ))
         }
         </ul>
