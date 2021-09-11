@@ -1,4 +1,4 @@
-mport React, { useState, useEffect } from "react"
+import React, { useState, useEffect } from "react"
 
 function ToDo() {
 
@@ -16,8 +16,8 @@ function ToDo() {
     }, [list])
 
 
-    const deleteTask=(e) => {
-        //Componente de boorrar
+    const deleteTask=(index) => {
+        
     }
     return (
         <>
@@ -28,11 +28,12 @@ function ToDo() {
         </form>
         <ul>
         { 
-        list.map(value => (
+        list.map((value, index) => (
             <>
-                <li>{value}</li>
-                {/Quiero que cada elemento tenga un id para asi poder seleccionarlo y borrar especificamente ese/}
-                <button type="submit" onClick={()=>{deleteTask(lista.id)}}>ELiminar</button>
+                <li>
+                    {value}
+                    <button type="submit" onClick={()=>this.delete(list.index)}>ELiminar</button>
+                </li>
             </>
         ))
         }
