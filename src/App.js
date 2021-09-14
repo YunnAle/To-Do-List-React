@@ -1,5 +1,4 @@
 import React from 'react'
-import ExpenseItem from './components/ExpenseItem';
 import ToDo from './components/ToDo'
 
 function App() {

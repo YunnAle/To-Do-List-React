@@ -10,15 +10,17 @@ function ToDo() {
         setList([...list, e.target.firstChild.value]) 
         e.target.firstChild.value = "" 
     }
-    //no entiendo que rayos hace useEffect-
+
+    const deleteTask = (index) => {
+        // console.log(list.splice(index, 0))
+        const filtered = list.filter((value) => value != list[index])
+        setList(filtered)
+    }
+
     useEffect(() => {
         console.log(list)
     }, [list])
 
-
-    const deleteTask=(index) => {
-        
-    }
     return (
         <>
         ¿Cual es la tarea?
@@ -30,9 +32,9 @@ function ToDo() {
         { 
         list.map((value, index) => (
             <>
-                <li>
+                <li key={index}>
                     {value}
-                    <button type="submit" onClick={()=>this.delete(list.index)}>ELiminar</button>
+                    <button type="submit" onClick={()=>{deleteTask(index)}}>ELiminar</button>
                 </li>
             </>
         ))
